@@ -1,0 +1,124 @@
+/* 
+4.209rem/42.09px
+3.157rem/31.57px
+2.369rem/23.69px
+1.777rem/17.77px
+1.333rem/13.33px
+1rem/10.00px
+*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+
+html {
+  font-size: 62.5%;
+  font-family: "Montserrat", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calculator__container {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  row-gap: 1rem;
+  background-color: #000;
+  border-radius: 1rem;
+  font-weight: 500;
+  padding: 2rem;
+}
+
+/* ====DISPLAY SECTION==== */
+.operation__display {
+  padding: 1rem 0;
+  color: white;
+  line-height: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.result__container {
+  font-size: 4.209rem;
+  font-weight: 500;
+}
+
+.expression__container {
+  font-size: 1.777rem;
+  font-weight: 400;
+}
+
+.buttons__container {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.button {
+  /* width:  */
+  font-size: 2.4rem;
+  line-height: 0.6;
+  border-radius: 300rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.button:nth-child(1),
+.button:nth-child(2),
+.button:nth-child(3) {
+  background-color: #a6a6a6;
+  /* font-weight: 300; */
+}
+
+/* ====OPERATIONS==== */
+.button:nth-child(4),
+.button:nth-child(8),
+.button:nth-child(12),
+.button:nth-child(16),
+.button:nth-child(19) {
+  background-color: #ff9f0a;
+  color: white;
+}
+
+/* ====NUMBERS==== */
+.button:nth-child(5),
+.button:nth-child(6),
+.button:nth-child(7),
+.button:nth-child(9),
+.button:nth-child(10),
+.button:nth-child(11),
+.button:nth-child(13),
+.button:nth-child(14),
+.button:nth-child(15),
+.button:nth-child(17),
+.button:nth-child(18) {
+  background-color: #333;
+  color: white;
+}
+
+.button:nth-child(17) {
+  grid-column: span 2;
+  justify-content: left;
+}
+
+i {
+  line-height: 0.8;
+}
+.icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: black;
+}
