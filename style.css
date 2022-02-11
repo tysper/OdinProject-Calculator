@@ -48,6 +48,13 @@ body {
   gap: 1rem;
 }
 
+.results__container {
+  height: 7.7875rem;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .result__container {
   font-size: 4.209rem;
   font-weight: 500;
@@ -58,6 +65,13 @@ body {
   font-weight: 400;
 }
 
+.current__container {
+  font-size: 4.209rem;
+  color: white;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
 .buttons__container {
   display: grid;
   grid-template-rows: repeat(5, 1fr);
@@ -74,42 +88,50 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: 500;
+  transition: all 0.3s;
 }
 
-.button:nth-child(1),
-.button:nth-child(2),
-.button:nth-child(3) {
+.btn-initial {
   background-color: #a6a6a6;
   /* font-weight: 300; */
 }
 
+.btn-initial:hover,
+.btn-initial:active {
+  background-color: #d9d9d9;
+}
+
 /* ====OPERATIONS==== */
-.button:nth-child(4),
-.button:nth-child(8),
-.button:nth-child(12),
-.button:nth-child(16),
-.button:nth-child(19) {
+.btn-operation {
   background-color: #ff9f0a;
   color: white;
 }
 
+.current-pressed {
+  background-color: white;
+  color: #ff9f0a;
+}
+
+.btn-operation:hover {
+  background-color: #fcc78d;
+}
+
+.btn-operation:active {
+  background-color: white;
+  color: #ff9f0a;
+}
 /* ====NUMBERS==== */
-.button:nth-child(5),
-.button:nth-child(6),
-.button:nth-child(7),
-.button:nth-child(9),
-.button:nth-child(10),
-.button:nth-child(11),
-.button:nth-child(13),
-.button:nth-child(14),
-.button:nth-child(15),
-.button:nth-child(17),
-.button:nth-child(18) {
+.btn-number {
   background-color: #333;
   color: white;
 }
 
-.button:nth-child(17) {
+.btn-number:hover,
+.btn-number:active {
+  background-color: #737373;
+}
+
+.btn-0 {
   grid-column: span 2;
   justify-content: left;
 }
@@ -121,4 +143,8 @@ i {
   width: 2.4rem;
   height: 2.4rem;
   color: black;
+}
+
+.font-hidden {
+  display: none;
 }
