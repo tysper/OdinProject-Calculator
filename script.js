@@ -21,17 +21,12 @@ const subtractFrom = (v1, v2) => {
   return result % 1 === 0 ? result : result.toFixed(2);
 };
 
-const percentageOf = (v1, v2) => {
-  return Number((v1 / 100).toFixed(2)) * v2;
-};
-
 // Operation to functions dict
 const operatorToFunction = {
   x: multiplyBy,
   "+": sumTo,
   "÷": divideBy,
   "-": subtractFrom,
-  "%": percentageOf,
 };
 
 function evaluateExpression([val1, operation, val2]) {
@@ -62,7 +57,6 @@ const sumBtn = document.querySelector(".btn-sum");
 const equalBtn = document.querySelector(".btn-equal");
 
 const operatorBtns = [
-  [percentBtn, "%"],
   [divisionBtn, "÷"],
   [multiplicationBtn, "x"],
   [subtractionBtn, "-"],
@@ -184,4 +178,10 @@ clearBtn.addEventListener("click", clearInterface);
 
 backspaceBtn.addEventListener("click", () => {
   currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
+});
+
+percentBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  const result = (+currentDisplay.textContent / 100).toFixed(2);
+  currentDisplay.textContent = `${result}`;
 });
