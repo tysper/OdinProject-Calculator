@@ -71,7 +71,7 @@ const numberBtns = new Array(10)
   .map((_, i) => [document.querySelector(`.btn-${i}`), i]);
 
 // Dom Logic
-
+window.ontouchstart = (e) => e.preventDefault;
 // ====> state variables
 
 let nextValue = false;
@@ -114,7 +114,8 @@ function clearInterface() {
 }
 
 numberBtns.forEach(([el, value]) => {
-  el.addEventListener("click", () => {
+  el.addEventListener("click", (e) => {
+    e.preventDefault();
     if (nextValue) {
       finalExpression[1] =
         operatorBtns[
@@ -132,7 +133,8 @@ numberBtns.forEach(([el, value]) => {
   });
 });
 
-pointBtn.addEventListener("click", () => {
+pointBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   if (!isFloat) {
     updateElementText(currentDisplay, ".");
     isFloat = true;
@@ -141,7 +143,9 @@ pointBtn.addEventListener("click", () => {
 
 operatorBtns.forEach((value, _, arr) => {
   const [x] = value;
-  x.addEventListener("click", () => {
+  x.addEventListener("click", (e) => {
+    e.preventDefault();
+
     isFloat = false;
     nextValue = true;
     finalExpression[0] = Number(getElValue(currentDisplay));
@@ -174,9 +178,10 @@ equalBtn.addEventListener("click", () => {
   lastResult = +evaluateExpression(finalExpression);
 });
 
-clearBtn.addEventListener("click", clearInterface);
+clearBtn.addEventListener("click", clearInterface());
 
-backspaceBtn.addEventListener("click", () => {
+backspaceBtn.addEventListener("click", (e) => {
+  e.preventDefault();
   currentDisplay.textContent = currentDisplay.textContent.slice(0, -1);
 });
 

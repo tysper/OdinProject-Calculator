@@ -149,3 +149,18 @@ i {
 .font-hidden {
   display: none;
 }
+
+@media (max-width: 25em) {
+  html {
+    font-size: 81.25%;
+  }
+  body {
+    background-color: #000;
+  }
+}
+
+@media (max-width: 19em) {
+  html {
+    font-size: 50%;
+  }
+}
