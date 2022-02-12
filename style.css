@@ -50,7 +50,7 @@ body {
 
 .results__container {
   height: 7.7875rem;
-  display: flex;
+  display: grid;
   align-items: center;
   justify-content: end;
 }
