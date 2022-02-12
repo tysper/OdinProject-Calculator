@@ -159,6 +159,7 @@ i {
   body {
     background-color: #000;
     /* display: block; */
+    height: 100%;
   }
 
   .calculator__container {
