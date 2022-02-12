@@ -84,6 +84,7 @@ let nextValue = false;
 let isFloat = false;
 let finalExpression = [];
 let finishedCalc = false;
+let lastResult = 0;
 // ====> dom logic
 
 function updateElementText(el, value) {
@@ -120,9 +121,6 @@ function clearInterface() {
 
 numberBtns.forEach(([el, value]) => {
   el.addEventListener("click", () => {
-    if (finishedCalc) {
-      clearInterface();
-    }
     if (nextValue) {
       finalExpression[1] =
         operatorBtns[
@@ -131,6 +129,10 @@ numberBtns.forEach(([el, value]) => {
           )
         ][1];
       nextValue = false;
+    }
+    if (finishedCalc) {
+      clearInterface();
+      finishedCalc = false;
     }
     updateElementText(currentDisplay, value);
   });
@@ -149,6 +151,11 @@ operatorBtns.forEach((value, _, arr) => {
     isFloat = false;
     nextValue = true;
     finalExpression[0] = Number(getElValue(currentDisplay));
+    if (finishedCalc) {
+      clearInterface();
+      finalExpression[0] = (() => +lastResult)();
+      finishedCalc = false;
+    }
     arr.forEach((x) => x[0].classList.remove("current-pressed"));
     x.classList.add("current-pressed");
     currentDisplay.textContent = "";
@@ -156,6 +163,10 @@ operatorBtns.forEach((value, _, arr) => {
 });
 
 equalBtn.addEventListener("click", () => {
+  finalExpression[1] =
+    operatorBtns[
+      operatorBtns.findIndex(([el]) => el.classList.contains("current-pressed"))
+    ][1];
   finalExpression[2] = Number(currentDisplay.textContent);
   currentDisplay.classList.add("font-hidden");
   currentDisplay.textContent = "";
@@ -166,6 +177,7 @@ equalBtn.addEventListener("click", () => {
   operatorEl.textContent = finalExpression[1];
   secondValueEl.textContent = finalExpression[2];
   finishedCalc = true;
+  lastResult = +evaluateExpression(finalExpression);
 });
 
 clearBtn.addEventListener("click", clearInterface);

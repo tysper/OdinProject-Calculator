@@ -94,6 +94,7 @@ body {
 .btn-initial {
   background-color: #a6a6a6;
   /* font-weight: 300; */
+  color: black;
 }
 
 .btn-initial:hover,
