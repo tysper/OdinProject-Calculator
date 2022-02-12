@@ -35,6 +35,8 @@ body {
   border-radius: 1rem;
   font-weight: 500;
   padding: 2rem;
+  width: 24.6rem;
+  height: 40.3812rem;
 }
 
 /* ====DISPLAY SECTION==== */
@@ -156,6 +158,11 @@ i {
   }
   body {
     background-color: #000;
+    /* display: block; */
+  }
+
+  .calculator__container {
+    margin: auto auto;
   }
 }
 
