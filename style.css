@@ -154,7 +154,7 @@ i {
 
 @media (max-width: 25em) {
   html {
-    font-size: 81.25%;
+    font-size: 75%;
   }
   body {
     background-color: #000;
